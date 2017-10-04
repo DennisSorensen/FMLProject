@@ -21,5 +21,10 @@ namespace FMLStorage
         {
 
         }
+
+        private void btnCreateProduct_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
