@@ -30,24 +30,26 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtProductId = new System.Windows.Forms.TextBox();
-            this.txtProductName = new System.Windows.Forms.TextBox();
-            this.txtProductPrice = new System.Windows.Forms.TextBox();
+            this.btnCreateProduct = new System.Windows.Forms.Button();
             this.txtProductAmount = new System.Windows.Forms.TextBox();
+            this.txtProductPrice = new System.Windows.Forms.TextBox();
+            this.txtProductName = new System.Windows.Forms.TextBox();
+            this.txtProductId = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.btnFindProduct = new System.Windows.Forms.Button();
+            this.lblProducePrice = new System.Windows.Forms.Label();
+            this.lblProductPrice = new System.Windows.Forms.Label();
+            this.lblProductName = new System.Windows.Forms.Label();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.lblProductName = new System.Windows.Forms.Label();
-            this.lblProductPrice = new System.Windows.Forms.Label();
-            this.lblProducePrice = new System.Windows.Forms.Label();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -66,6 +68,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.btnCreateProduct);
             this.tabPage1.Controls.Add(this.txtProductAmount);
             this.tabPage1.Controls.Add(this.txtProductPrice);
             this.tabPage1.Controls.Add(this.txtProductName);
@@ -82,8 +85,83 @@
             this.tabPage1.Text = "Opret produkt";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // btnCreateProduct
+            // 
+            this.btnCreateProduct.Location = new System.Drawing.Point(96, 158);
+            this.btnCreateProduct.Name = "btnCreateProduct";
+            this.btnCreateProduct.Size = new System.Drawing.Size(75, 23);
+            this.btnCreateProduct.TabIndex = 8;
+            this.btnCreateProduct.Text = "Opret";
+            this.btnCreateProduct.UseVisualStyleBackColor = true;
+            this.btnCreateProduct.Click += new System.EventHandler(this.btnCreateProduct_Click);
+            // 
+            // txtProductAmount
+            // 
+            this.txtProductAmount.Location = new System.Drawing.Point(144, 112);
+            this.txtProductAmount.Name = "txtProductAmount";
+            this.txtProductAmount.Size = new System.Drawing.Size(100, 22);
+            this.txtProductAmount.TabIndex = 7;
+            // 
+            // txtProductPrice
+            // 
+            this.txtProductPrice.Location = new System.Drawing.Point(144, 84);
+            this.txtProductPrice.Name = "txtProductPrice";
+            this.txtProductPrice.Size = new System.Drawing.Size(100, 22);
+            this.txtProductPrice.TabIndex = 6;
+            // 
+            // txtProductName
+            // 
+            this.txtProductName.Location = new System.Drawing.Point(144, 54);
+            this.txtProductName.Name = "txtProductName";
+            this.txtProductName.Size = new System.Drawing.Size(100, 22);
+            this.txtProductName.TabIndex = 5;
+            // 
+            // txtProductId
+            // 
+            this.txtProductId.Location = new System.Drawing.Point(144, 25);
+            this.txtProductId.Name = "txtProductId";
+            this.txtProductId.Size = new System.Drawing.Size(100, 22);
+            this.txtProductId.TabIndex = 4;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(31, 115);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(44, 17);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "Antal:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(31, 87);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(88, 17);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Produkt pris:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(31, 57);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(96, 17);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Produkt navn:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(31, 28);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(76, 17);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Produkt id:";
+            // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.btnFindProduct);
             this.tabPage2.Controls.Add(this.lblProducePrice);
             this.tabPage2.Controls.Add(this.lblProductPrice);
             this.tabPage2.Controls.Add(this.lblProductName);
@@ -100,79 +178,41 @@
             this.tabPage2.Text = "Find produkt";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // tabPage3
+            // btnFindProduct
             // 
-            this.tabPage3.Location = new System.Drawing.Point(4, 25);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(946, 531);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "tabPage3";
-            this.tabPage3.UseVisualStyleBackColor = true;
+            this.btnFindProduct.Location = new System.Drawing.Point(75, 143);
+            this.btnFindProduct.Name = "btnFindProduct";
+            this.btnFindProduct.Size = new System.Drawing.Size(75, 23);
+            this.btnFindProduct.TabIndex = 16;
+            this.btnFindProduct.Text = "Find";
+            this.btnFindProduct.UseVisualStyleBackColor = true;
             // 
-            // label1
+            // lblProducePrice
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(31, 28);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(76, 17);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Produkt id:";
+            this.lblProducePrice.AutoSize = true;
+            this.lblProducePrice.Location = new System.Drawing.Point(131, 107);
+            this.lblProducePrice.Name = "lblProducePrice";
+            this.lblProducePrice.Size = new System.Drawing.Size(83, 17);
+            this.lblProducePrice.TabIndex = 15;
+            this.lblProducePrice.Text = "find produkt";
             // 
-            // label2
+            // lblProductPrice
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(31, 57);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(96, 17);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Produkt navn:";
+            this.lblProductPrice.AutoSize = true;
+            this.lblProductPrice.Location = new System.Drawing.Point(131, 79);
+            this.lblProductPrice.Name = "lblProductPrice";
+            this.lblProductPrice.Size = new System.Drawing.Size(83, 17);
+            this.lblProductPrice.TabIndex = 14;
+            this.lblProductPrice.Text = "find produkt";
             // 
-            // label3
+            // lblProductName
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(31, 87);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(88, 17);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Produkt pris:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(31, 115);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(44, 17);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Antal:";
-            // 
-            // txtProductId
-            // 
-            this.txtProductId.Location = new System.Drawing.Point(144, 25);
-            this.txtProductId.Name = "txtProductId";
-            this.txtProductId.Size = new System.Drawing.Size(100, 22);
-            this.txtProductId.TabIndex = 4;
-            // 
-            // txtProductName
-            // 
-            this.txtProductName.Location = new System.Drawing.Point(144, 54);
-            this.txtProductName.Name = "txtProductName";
-            this.txtProductName.Size = new System.Drawing.Size(100, 22);
-            this.txtProductName.TabIndex = 5;
-            // 
-            // txtProductPrice
-            // 
-            this.txtProductPrice.Location = new System.Drawing.Point(144, 84);
-            this.txtProductPrice.Name = "txtProductPrice";
-            this.txtProductPrice.Size = new System.Drawing.Size(100, 22);
-            this.txtProductPrice.TabIndex = 6;
-            // 
-            // txtProductAmount
-            // 
-            this.txtProductAmount.Location = new System.Drawing.Point(144, 112);
-            this.txtProductAmount.Name = "txtProductAmount";
-            this.txtProductAmount.Size = new System.Drawing.Size(100, 22);
-            this.txtProductAmount.TabIndex = 7;
+            this.lblProductName.AutoSize = true;
+            this.lblProductName.Location = new System.Drawing.Point(131, 49);
+            this.lblProductName.Name = "lblProductName";
+            this.lblProductName.Size = new System.Drawing.Size(83, 17);
+            this.lblProductName.TabIndex = 13;
+            this.lblProductName.Text = "find produkt";
             // 
             // textBox5
             // 
@@ -217,32 +257,15 @@
             this.label10.TabIndex = 8;
             this.label10.Text = "Produkt id:";
             // 
-            // lblProductName
+            // tabPage3
             // 
-            this.lblProductName.AutoSize = true;
-            this.lblProductName.Location = new System.Drawing.Point(131, 49);
-            this.lblProductName.Name = "lblProductName";
-            this.lblProductName.Size = new System.Drawing.Size(83, 17);
-            this.lblProductName.TabIndex = 13;
-            this.lblProductName.Text = "find produkt";
-            // 
-            // lblProductPrice
-            // 
-            this.lblProductPrice.AutoSize = true;
-            this.lblProductPrice.Location = new System.Drawing.Point(131, 79);
-            this.lblProductPrice.Name = "lblProductPrice";
-            this.lblProductPrice.Size = new System.Drawing.Size(83, 17);
-            this.lblProductPrice.TabIndex = 14;
-            this.lblProductPrice.Text = "find produkt";
-            // 
-            // lblProducePrice
-            // 
-            this.lblProducePrice.AutoSize = true;
-            this.lblProducePrice.Location = new System.Drawing.Point(131, 107);
-            this.lblProducePrice.Name = "lblProducePrice";
-            this.lblProducePrice.Size = new System.Drawing.Size(83, 17);
-            this.lblProducePrice.TabIndex = 15;
-            this.lblProducePrice.Text = "find produkt";
+            this.tabPage3.Location = new System.Drawing.Point(4, 25);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(946, 531);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "tabPage3";
+            this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -284,6 +307,8 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.Button btnCreateProduct;
+        private System.Windows.Forms.Button btnFindProduct;
     }
 }
 
