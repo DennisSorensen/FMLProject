@@ -48,6 +48,8 @@
     <Compile Include="IService1.cs" />
     <Compile Include="Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sale.cs" />
+    <Compile Include="SalesLineItem.cs" />
     <Compile Include="Service1.cs" />
   </ItemGroup>
   <ItemGroup>
