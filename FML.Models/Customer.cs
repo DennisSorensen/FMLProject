@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FML.Models
 {
-    class Customer
+    public class Customer
     {
         public int CustomerId { get; set; }
         public bool Commercial { get; set; }
