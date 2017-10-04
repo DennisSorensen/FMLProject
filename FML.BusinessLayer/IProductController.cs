@@ -9,6 +9,6 @@ namespace FML.BusinessLayer
     interface IProductController<T>
     {
         void Create(T entity);
-        T FindProduct(int id);
+        T Get(int id);
     }
 }

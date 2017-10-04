@@ -14,7 +14,7 @@ namespace FML.BusinessLayer
             throw new NotImplementedException();
         }
 
-        public Product FindProduct(int id)
+        public Product Get(int id)
         {
             throw new NotImplementedException();
         }
