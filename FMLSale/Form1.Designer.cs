@@ -168,6 +168,7 @@
             this.button5.TabIndex = 19;
             this.button5.Text = "Complete";
             this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button4
             // 
@@ -219,7 +220,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "FML-Sale";
             this.ResumeLayout(false);
             this.PerformLayout();
 

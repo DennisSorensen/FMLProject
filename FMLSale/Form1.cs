@@ -41,5 +41,12 @@ namespace FMLSale
         {
 
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            //ServiceReference1.Service1Client serviceclient = new ServiceReference1.Service1Client();
+            ServiceReference1.IService1 service = new ServiceReference1.Service1Client();
+            int c = service.Multiply(5, 5);
+        }
     }
 }
