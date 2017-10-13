@@ -5,6 +5,7 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
+using FML.Models;
 
 namespace FML.Service
 {
@@ -31,6 +32,18 @@ namespace FML.Service
                 composite.StringValue += "Suffix";
             }
             return composite;
+        }
+
+        public Customer FindCustomer(int id)
+        {
+            Customer cust = new Customer();
+            cust.CustomerId = 1;
+            cust.Commercial = false;
+            cust.Address = "AAlborg";
+            cust.Email = "Mail@mail.dk";
+            cust.Name = "Gruppe 3";
+            Console.WriteLine(id);
+            return cust;
         }
     }
 }
