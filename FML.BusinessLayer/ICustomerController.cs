@@ -8,7 +8,10 @@ namespace FML.BusinessLayer
 {
     interface ICustomerController<T>
     {
-        void Create(T entity);
+        void Create(T Customer);
+        void FindByCustomerId(int CustomerId);
+        void Update(T entity);
+        void Delete(int id);
         T Get(int id);
     }
 }

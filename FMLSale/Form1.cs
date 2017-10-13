@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FMLSale.ServiceReference1;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,7 +16,12 @@ namespace FMLSale
         public Form1()
         {
             InitializeComponent();
+
+            
         }
+
+        //ServiceReference1.Service1Client serviceclient = new ServiceReference1.Service1Client();
+        ServiceReference1.IService1 service = new ServiceReference1.Service1Client();
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
@@ -44,9 +50,19 @@ namespace FMLSale
 
         private void button5_Click(object sender, EventArgs e)
         {
-            //ServiceReference1.Service1Client serviceclient = new ServiceReference1.Service1Client();
-            ServiceReference1.IService1 service = new ServiceReference1.Service1Client();
+            
             int c = service.Multiply(5, 5);
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            var customer = new Customer();
+            customer = service.FindCustomer(1);
+            Console.WriteLine(customer.CustomerId);
+            Console.WriteLine(customer.Name);
+            Console.WriteLine(customer.Commercial);
+            Console.WriteLine(customer.Email);
+            Console.WriteLine(customer.Address);
         }
     }
 }

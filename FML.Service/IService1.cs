@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FML.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -18,6 +19,9 @@ namespace FML.Service
 
         [OperationContract]
         int Multiply (int a, int b);
+
+        [OperationContract]
+        Customer FindCustomer(int id);
         
         [OperationContract]
         CompositeType GetDataUsingDataContract(CompositeType composite);
