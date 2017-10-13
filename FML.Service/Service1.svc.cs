@@ -9,7 +9,7 @@ namespace FML.Service
     public class Service1 : IService1
     {
         
-        private ICustomerControler<Customer> customerController;
+        private ICustomerController<Customer> customerController;
 
         public Service1()
         {
@@ -39,6 +39,8 @@ namespace FML.Service
 
         public Customer FindCustomer(int id)
         {
+            customerController.FindByCustomerId(id);//Klader metode i Business layer
+            //Test Data
             Customer cust = new Customer();
             cust.CustomerId = 1;
             cust.Commercial = false;
@@ -46,7 +48,7 @@ namespace FML.Service
             cust.Email = "Mail@mail.dk";
             cust.Name = "Gruppe 3";
             Console.WriteLine(id);
-            return cust;
+            return cust;//Ændre til det vi får fra Business layer
         }
     }
 }

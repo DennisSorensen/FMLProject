@@ -8,7 +8,7 @@ using System.Data.SqlClient;
 
 namespace FML.DBLayer
 {
-    class DbCustomer : IDbCRUD<Customer>
+    public class DbCustomer : IDbCRUD<Customer>
     {
         private readonly string CONNECTION_STRING = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
 

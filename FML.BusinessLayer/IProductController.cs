@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FML.BusinessLayer
 {
-    interface IProductController<T>
+    public interface IProductController<T>
     {
         void Create(T entity);
         T Get(int id);

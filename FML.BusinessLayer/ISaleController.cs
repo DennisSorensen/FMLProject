@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FML.BusinessLayer
 {
-    interface ISaleController
+    public interface ISaleController
     {
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FML.DBLayer
 {
-    interface IDbCRUD<T>
+    public interface IDbCRUD<T>
     {
         //T er stand in for en hvilken som helst class, "entity" er pladsholder for navnet på instance af class T. 
         void Create(T entity);

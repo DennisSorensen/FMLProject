@@ -4,17 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using FML.Models;
+using FML.DBLayer;
 
 namespace FML.BusinessLayer
 {
-    class CustomerController : ICustomerController<Customer>
+    public class CustomerController : ICustomerController<Customer>
     {
-        private IDbCRUD<Customer> dbCrud;
+        private IDbCRUD<Customer> DbCRUD;
         public CustomerController()
         {
-            dbCrud = new DbCustomer();
+            DbCRUD = new DbCustomer();
         }
-
+        
         public void Create(Customer customer)
         {
             throw new NotImplementedException();

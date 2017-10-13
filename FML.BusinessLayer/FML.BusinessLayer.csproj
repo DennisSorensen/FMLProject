@@ -58,6 +58,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\FML.DBLayer\FML.DBLayer.csproj">
+      <Project>{d8e80864-0a6e-4eed-8f8b-71e1b7f9760b}</Project>
+      <Name>FML.DBLayer</Name>
+    </ProjectReference>
     <ProjectReference Include="..\FML.Models\FML.Models.csproj">
       <Project>{6c4200fa-9015-4c9e-8cb2-8c9cd46ca25e}</Project>
       <Name>FML.Models</Name>

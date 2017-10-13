@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FML.BusinessLayer
 {
-    interface ICustomerController<T>
+    public interface ICustomerController<T>
     {
         void Create(T Customer);
         void FindByCustomerId(int CustomerId);
