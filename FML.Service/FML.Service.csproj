@@ -83,6 +83,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\FML.BusinessLayer\FML.BusinessLayer.csproj">
+      <Project>{2d7abe5c-9f37-42ab-bd8c-7c94635eeecc}</Project>
+      <Name>FML.BusinessLayer</Name>
+    </ProjectReference>
     <ProjectReference Include="..\FML.Models\FML.Models.csproj">
       <Project>{6C4200FA-9015-4C9E-8CB2-8C9CD46CA25E}</Project>
       <Name>FML.Models</Name>

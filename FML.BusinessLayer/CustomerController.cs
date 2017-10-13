@@ -9,6 +9,12 @@ namespace FML.BusinessLayer
 {
     class CustomerController : ICustomerController<Customer>
     {
+        private IDbCRUD<Customer> dbCrud;
+        public CustomerController()
+        {
+            dbCrud = new DbCustomer();
+        }
+
         public void Create(Customer customer)
         {
             throw new NotImplementedException();
