@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace FML.Models
 {
-    class SalesLineItem
+
+    public class SalesLineItem
     {
         public int Count { get; set; }
         public Product Product { get; set; }
