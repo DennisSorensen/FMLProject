@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="DbCustomer.cs" />
     <Compile Include="DbProduct.cs" />
+    <Compile Include="DbSalesLineItem.cs" />
     <Compile Include="IDbCRUD.cs" />
     <Compile Include="IService1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
