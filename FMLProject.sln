@@ -1,9 +1,12 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.12
+VisualStudioVersion = 15.0.26730.16
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FMLSale", "FMLSale\FMLSale.csproj", "{B564CBEB-1FC9-4680-A114-02F95EF293F0}"
+	ProjectSection(ProjectDependencies) = postProject
+		{D83663CE-2955-4DDF-A236-124688CE8246} = {D83663CE-2955-4DDF-A236-124688CE8246}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FMLStorage", "FMLStorage\FMLStorage.csproj", "{30BA766F-8990-49DB-9AB5-0D49076BE266}"
 EndProject
@@ -12,6 +15,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FML.DBLayer", "FML.DBLayer\FML.DBLayer.csproj", "{D8E80864-0A6E-4EED-8F8B-71E1B7F9760B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FML.Models", "FML.Models\FML.Models.csproj", "{6C4200FA-9015-4C9E-8CB2-8C9CD46CA25E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FML.Service", "FML.Service\FML.Service.csproj", "{D83663CE-2955-4DDF-A236-124688CE8246}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +44,10 @@ Global
 		{6C4200FA-9015-4C9E-8CB2-8C9CD46CA25E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6C4200FA-9015-4C9E-8CB2-8C9CD46CA25E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6C4200FA-9015-4C9E-8CB2-8C9CD46CA25E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D83663CE-2955-4DDF-A236-124688CE8246}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D83663CE-2955-4DDF-A236-124688CE8246}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D83663CE-2955-4DDF-A236-124688CE8246}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D83663CE-2955-4DDF-A236-124688CE8246}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
