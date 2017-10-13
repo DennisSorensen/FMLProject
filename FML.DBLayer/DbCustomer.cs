@@ -1,13 +1,10 @@
 ﻿using FML.Models;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Configuration;
 using System.Transactions;
 using System.Data.SqlClient;
-using System.ServiceModel;
+
 
 namespace FML.DBLayer
 {
@@ -49,20 +46,20 @@ namespace FML.DBLayer
     
 
         public void Delete(int id)
-         { 
-        using (SqlConnection connection = new SqlConnection(CONNECTION_STRING))
         {
-            connection.Open();
-
-            using (SqlCommand cmd = connection.CreateCommand())
+            using (SqlConnection connection = new SqlConnection(CONNECTION_STRING))
             {
-                cmd.CommandText = "DELETE FROM Customer WHERE Id=@id";
-                cmd.Parameters.AddWithValue("id", id);
-                cmd.ExecuteNonQuery();
-            }
+                connection.Open();
 
+                using (SqlCommand cmd = connection.CreateCommand())
+                {
+                    cmd.CommandText = "DELETE FROM Customer WHERE Id=@id";
+                    cmd.Parameters.AddWithValue("id", id);
+                    cmd.ExecuteNonQuery();
+                }
+            }
         }
-    }
+    
 
         public Customer Get(int CustomerId)
         {
@@ -81,7 +78,7 @@ namespace FML.DBLayer
                     {
                         customer = new Customer
                         {
-                            
+
                             CustomerId = (int)reader["CustomerId"],
                             Commercial = (bool)reader["Commercial"],
                             Name = (String)reader["Name"],
@@ -135,7 +132,7 @@ namespace FML.DBLayer
 
                 using (SqlCommand cmd = connection.CreateCommand())
                 {
-                    cmd.CommandText = "UPDATE Customer SET CustomerID=@cusId, Commercial=@comId, Name=@name, Address=@address, Email=@email WHERE ID=@CustomerId";
+                    cmd.CommandText = "UPDATE Customer SET CustomerId=@cusId, Commercial=@comId, Name=@name, Address=@address, Email=@email WHERE ID=@CustomerId";
                     cmd.Parameters.AddWithValue("cusId", customer.CustomerId);
                     cmd.Parameters.AddWithValue("comId", customer.Commercial);
                     cmd.Parameters.AddWithValue("name", customer.Name);

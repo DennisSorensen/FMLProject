@@ -1,18 +1,16 @@
 ﻿using FML.Models;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Configuration;
+using System.Transactions;
+using System.Data.SqlClient;
 
 namespace FML.DBLayer
 {
     class DbProduct : IDbCRUD<Product>
     {
-
         private readonly string CONNECTION_STRING = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
-
-        public void Create(Product entity)
+        public void Create(Product product)
         {
             TransactionOptions to = new TransactionOptions { IsolationLevel = IsolationLevel.RepeatableRead };
             using (TransactionScope scope = new TransactionScope(TransactionScopeOption.RequiresNew, to))
@@ -20,30 +18,23 @@ namespace FML.DBLayer
                 using (SqlConnection connection = new SqlConnection(CONNECTION_STRING))
                 {
                     connection.Open();
-                    int amountOfBookings;
-                    using (SqlCommand cmd = connection.CreateCommand())
-                    {
-                        cmd.CommandText = "SELECT Count(*) FROM Booking WHERE StartTime <= @startTime AND EndTime>=@endTime AND RoomId=@roomId";
-                        cmd.Parameters.AddWithValue("roomId", entity.RoomId);
-                        cmd.Parameters.AddWithValue("startTime", entity.StartTime);
-                        cmd.Parameters.AddWithValue("endTime", entity.EndTime);
-                        amountOfBookings = (int)cmd.ExecuteScalar();
-                    }
-                    if (amountOfBookings == 0)
+
+
+                    try
                     {
                         using (SqlCommand cmd = connection.CreateCommand())
                         {
-                            cmd.CommandText = "INSERT INTO Booking (RoomId, UserId, StartTime,EndTime) VALUES(@roomId, @userId,@startTime,@endTime)";
-                            cmd.Parameters.AddWithValue("roomId", entity.RoomId);
-                            cmd.Parameters.AddWithValue("userId", entity.UserId);
-                            cmd.Parameters.AddWithValue("startTime", entity.StartTime);
-                            cmd.Parameters.AddWithValue("endTime", entity.EndTime);
+                            cmd.CommandText = "INSERT INTO Product (ProductId, Stock, Name, Price) VALUES(@ProductId, @Stock, @Name, @Price)";
+                            cmd.Parameters.AddWithValue("CustomerId", product.ProductId);
+                            cmd.Parameters.AddWithValue("Stock", product.Stock);
+                            cmd.Parameters.AddWithValue("Name", product.Name);
+                            cmd.Parameters.AddWithValue("Price", product.Price);
                             cmd.ExecuteNonQuery();
                         }
                     }
-                    else
+                    catch (SqlException e)
                     {
-                        throw new FaultException<Exception>(new Exception("Der er allerede en booking"));
+                        throw e;
                     }
                 }
                 scope.Complete();
@@ -52,22 +43,99 @@ namespace FML.DBLayer
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            using (SqlConnection connection = new SqlConnection(CONNECTION_STRING))
+            {
+                connection.Open();
+
+                using (SqlCommand cmd = connection.CreateCommand())
+                {
+                    cmd.CommandText = "DELETE FROM Product WHERE Id=@id";
+                    cmd.Parameters.AddWithValue("id", id);
+                    cmd.ExecuteNonQuery();
+                }
+            }
         }
 
-        public Product Get(int Id)
+        public Product Get(int productId)
         {
-            throw new NotImplementedException();
+            Product product = null;
+            using (SqlConnection connection = new SqlConnection(CONNECTION_STRING))
+            {
+                connection.Open();
+
+                using (SqlCommand cmd = connection.CreateCommand())
+                {
+                    cmd.CommandText = "SELECT * FROM Product WHERE Id=@productId";
+                    cmd.Parameters.AddWithValue("CustomerId", productId);
+                    var reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        product = new Product
+                        {
+
+                            ProductId = (int)reader["ProductId"],
+                            Stock = (int)reader["Stock"],
+                            Name = (String)reader["Name"],
+                            Price = (double)reader["Price"]
+
+                        };
+                    }
+                }
+
+            }
+            return product;
         }
 
         public IEnumerable<Product> GetAll()
         {
-            throw new NotImplementedException();
+            List<Product> products = new List<Product>();
+            using (SqlConnection connection = new SqlConnection(CONNECTION_STRING))
+            {
+                connection.Open();
+
+                using (SqlCommand cmd = connection.CreateCommand())
+                {
+                    cmd.CommandText = "SELECT * FROM Product";
+                    var reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        Product p = new Product
+                        {
+                            ProductId = (int)reader["ProductId"],
+                            Stock = (int)reader["Stock"],
+                            Name = (String)reader["Name"],
+                            Price = (double)reader["Price"]
+
+                        };
+                        products.Add(p);
+                    }
+                }
+
+            }
+            return products;
         }
 
-        public void Update(Product entity)
+        public void Update(Product product)
         {
-            throw new NotImplementedException();
+            using (SqlConnection connection = new SqlConnection(CONNECTION_STRING))
+            {
+                connection.Open();
+
+                using (SqlCommand cmd = connection.CreateCommand())
+                {
+                    cmd.CommandText = "UPDATE Product SET ProductId=@ProdId, Stock=@stock, Name=@name, Price=@price WHERE ID=@ProductId";
+                    cmd.Parameters.AddWithValue("ProdId", product.ProductId);
+                    cmd.Parameters.AddWithValue("stock", product.Stock);
+                    cmd.Parameters.AddWithValue("name", product.Name);
+                    cmd.Parameters.AddWithValue("price", product.Price);
+                    cmd.Parameters.AddWithValue("ProductId", product.ProductId);
+                    cmd.ExecuteNonQuery();
+
+                }
+
+            }
         }
     }
 }
