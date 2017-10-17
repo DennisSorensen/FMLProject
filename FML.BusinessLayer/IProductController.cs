@@ -8,7 +8,10 @@ namespace FML.BusinessLayer
 {
     public interface IProductController<T>
     {
-        void Create(T entity);
+        void Create(T Product);
+        void Update(T entity);
+        void Delete(int id);
+        IEnumerable<T> GetAll();
         T Get(int id);
     }
 }

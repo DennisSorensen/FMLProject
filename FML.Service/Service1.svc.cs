@@ -39,7 +39,7 @@ namespace FML.Service
 
         public Customer FindCustomer(int id)
         {
-            customerController.FindByCustomerId(id);//Klader metode i Business layer
+            customerController.Get(id);//Klader metode i Business layer
             //Test Data
             Customer cust = new Customer();
             cust.CustomerId = 1;

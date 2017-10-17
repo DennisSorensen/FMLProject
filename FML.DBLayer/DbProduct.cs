@@ -7,7 +7,7 @@ using System.Data.SqlClient;
 
 namespace FML.DBLayer
 {
-    class DbProduct : IDbCRUD<Product>
+    public class DbProduct : IDbCRUD<Product>
     {
         private readonly string CONNECTION_STRING = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
         public void Create(Product product)

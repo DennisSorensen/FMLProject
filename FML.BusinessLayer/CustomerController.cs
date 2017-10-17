@@ -18,27 +18,27 @@ namespace FML.BusinessLayer
         
         public void Create(Customer customer)
         {
-            throw new NotImplementedException();
+            DbCRUD.Create(customer);
         }
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
-        }
-
-        public void FindByCustomerId(int CustomerId)
-        {
-            throw new NotImplementedException();
+            DbCRUD.Delete(id);
         }
 
         public Customer Get(int id)
         {
-            throw new NotImplementedException();
+            return DbCRUD.Get(id);
         }
 
-        public void Update(Customer entity)
+        public IEnumerable<Customer> GetAll()
         {
-            throw new NotImplementedException();
+            return DbCRUD.GetAll();
+        }
+
+        public void Update(Customer customer)
+        {
+            DbCRUD.Update(customer);
         }
     }
 }

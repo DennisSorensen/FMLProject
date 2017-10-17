@@ -9,9 +9,9 @@ namespace FML.BusinessLayer
     public interface ICustomerController<T>
     {
         void Create(T Customer);
-        void FindByCustomerId(int CustomerId);
         void Update(T entity);
         void Delete(int id);
+        IEnumerable<T> GetAll();
         T Get(int id);
     }
 }
