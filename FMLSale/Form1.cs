@@ -21,7 +21,7 @@ namespace FMLSale
         }
 
         //ServiceReference1.Service1Client serviceclient = new ServiceReference1.Service1Client();
-        ServiceReference1.IService1 service = new ServiceReference1.Service1Client();
+        ServiceReference1.IService1 service = new ServiceReference1.Service1Client(); //Vires service reference, sådan vi kan kalde 
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
@@ -54,15 +54,33 @@ namespace FMLSale
             int c = service.Multiply(5, 5);
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void button4_Click(object sender, EventArgs e) //Søg kanppen på customer
         {
-            var customer = new Customer();
-            customer = service.FindCustomer(1);
-            Console.WriteLine(customer.CustomerId);
-            Console.WriteLine(customer.Name);
-            Console.WriteLine(customer.Commercial);
-            Console.WriteLine(customer.Email);
-            Console.WriteLine(customer.Address);
+            var customer = new Customer(); //Grunden til vi kan se Customer er pga vores service reference til FML.Service
+            int customerIdInt = Int32.Parse(textBox2.Text); //Laver vores input om til en int.
+            customer = service.FindCustomer(customerIdInt); //Kalder vores service med customerId, og ligger returværdien i customer.
+
+            //Indsætter customer i listbox
+            listBox2.Items.Add(customer.CustomerId);
+            listBox2.Items.Add(customer.Name);
+            listBox2.Items.Add(customer.Commercial);
+            listBox2.Items.Add(customer.Email);
+            listBox2.Items.Add(customer.Address);
+        }
+
+        private void label3_Click(object sender, EventArgs e) 
+        {
+
+        }
+
+        private void listBox2_SelectedIndexChanged(object sender, EventArgs e) //ListBox til output på customer
+        {
+
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e) //Textbox med customerId
+        {
+
         }
     }
 }

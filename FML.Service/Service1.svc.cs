@@ -13,7 +13,7 @@ namespace FML.Service
 
         public Service1()
         {
-            customerController = new CustomerController();
+            customerController = new CustomerController();  //<-hvis dette udkommenteres virker den
         }
 
         public string GetData(int value)
@@ -39,16 +39,19 @@ namespace FML.Service
 
         public Customer FindCustomer(int id)
         {
-            customerController.Get(id);//Klader metode i Business layer
+            Customer customer = new Customer(); //Kunde som data kan blive indlæst i
+
+            //Klader metode i Business layer, som henter en customer fra id
+            customer = customerController.Get(id); //<-hvis dette udkommenteres virker den
+
             //Test Data
-            Customer cust = new Customer();
-            cust.CustomerId = 1;
-            cust.Commercial = false;
-            cust.Address = "AAlborg";
-            cust.Email = "Mail@mail.dk";
-            cust.Name = "Gruppe 3";
-            Console.WriteLine(id);
-            return cust;//Ændre til det vi får fra Business layer
+            customer.CustomerId = 1;
+            customer.Name = "Gærtrud";
+            customer.Commercial = false;
+            customer.Email = "Mail@mail.dk";
+            customer.Address = "AAlborgvej 1";
+
+            return customer;//Ændre til det vi får fra Business layer
         }
     }
 }

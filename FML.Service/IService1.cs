@@ -20,6 +20,7 @@ namespace FML.Service
         [OperationContract]
         int Multiply (int a, int b);
 
+        //Interface til find customer
         [OperationContract]
         Customer FindCustomer(int id);
         

@@ -37,11 +37,9 @@
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.listBox2 = new System.Windows.Forms.ListBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -122,15 +120,11 @@
             // 
             this.listBox2.FormattingEnabled = true;
             this.listBox2.ItemHeight = 16;
-            this.listBox2.Items.AddRange(new object[] {
-            "Jens jensen",
-            "Egevej 10",
-            "9000 Randers",
-            "Cvr: 06547454"});
             this.listBox2.Location = new System.Drawing.Point(321, 173);
             this.listBox2.Name = "listBox2";
             this.listBox2.Size = new System.Drawing.Size(120, 100);
             this.listBox2.TabIndex = 14;
+            this.listBox2.SelectedIndexChanged += new System.EventHandler(this.listBox2_SelectedIndexChanged);
             // 
             // textBox2
             // 
@@ -138,16 +132,7 @@
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(120, 22);
             this.textBox2.TabIndex = 15;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label3.Location = new System.Drawing.Point(327, 76);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(81, 17);
-            this.label3.TabIndex = 16;
-            this.label3.Text = "CustomerID";
+            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // button3
             // 
@@ -180,17 +165,6 @@
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label4.Location = new System.Drawing.Point(54, 76);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(57, 17);
-            this.label4.TabIndex = 21;
-            this.label4.Text = "Product";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -206,11 +180,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(513, 407);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button3);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.listBox2);
             this.Controls.Add(this.listBox1);
@@ -238,11 +210,9 @@
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.ListBox listBox2;
         private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
     }
 }
