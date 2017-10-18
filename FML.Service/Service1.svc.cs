@@ -45,13 +45,15 @@ namespace FML.Service
             customer = customerController.Get(id); //<-hvis dette udkommenteres virker den
 
             //Test Data
+            /*
             customer.CustomerId = 1;
             customer.Name = "Gærtrud";
             customer.Commercial = false;
             customer.Email = "Mail@mail.dk";
             customer.Address = "AAlborgvej 1";
+            */
 
-            return customer;//Ændre til det vi får fra Business layer
+            return customer;
         }
     }
 }
