@@ -61,6 +61,7 @@ namespace FMLSale
             customer = service.FindCustomer(customerIdInt); //Kalder vores service med customerId, og ligger returværdien i customer.
             
             if (customer != null) { //Tjekker om der er kommet en customer
+                listBox2.Items.Clear(); //Sletter alt i listenBox2
                 //Indsætter customer i listbox
                 listBox2.Items.Add(customer.CustomerId);
                 listBox2.Items.Add(customer.Name);
