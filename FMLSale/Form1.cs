@@ -59,13 +59,19 @@ namespace FMLSale
             var customer = new Customer(); //Grunden til vi kan se Customer er pga vores service reference til FML.Service
             int customerIdInt = Int32.Parse(textBox2.Text); //Laver vores input om til en int.
             customer = service.FindCustomer(customerIdInt); //Kalder vores service med customerId, og ligger returværdien i customer.
-
-            //Indsætter customer i listbox
-            listBox2.Items.Add(customer.CustomerId);
-            listBox2.Items.Add(customer.Name);
-            listBox2.Items.Add(customer.Commercial);
-            listBox2.Items.Add(customer.Email);
-            listBox2.Items.Add(customer.Address);
+            
+            if (customer != null) { //Tjekker om der er kommet en customer
+                //Indsætter customer i listbox
+                listBox2.Items.Add(customer.CustomerId);
+                listBox2.Items.Add(customer.Name);
+                listBox2.Items.Add(customer.Commercial);
+                listBox2.Items.Add(customer.Email);
+                listBox2.Items.Add(customer.Address);
+            } else
+            {
+                listBox2.Items.Add("Not Valid");
+            }
+            
         }
 
         private void label3_Click(object sender, EventArgs e) 

@@ -10,17 +10,17 @@ namespace FML.DBLayer
 {
     public class DbCustomer : IDbCRUD<Customer>
     {
-        //private readonly string CONNECTION_STRING = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+        private readonly string CONNECTION_STRING = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
 
         public void Create(Customer customer)
         {
-            var CONNECTION_STRING = ConfigurationManager.ConnectionStrings["DefaultConnection"];
-            string connectionString = CONNECTION_STRING.ConnectionString;
+            //var CONNECTION_STRING = ConfigurationManager.ConnectionStrings["DefaultConnection"];
+            //string connectionString = CONNECTION_STRING.ConnectionString;
 
             TransactionOptions to = new TransactionOptions { IsolationLevel = IsolationLevel.RepeatableRead };
             using (TransactionScope scope = new TransactionScope(TransactionScopeOption.RequiresNew, to))
             {
-                using (SqlConnection connection = new SqlConnection(connectionString))
+                using (SqlConnection connection = new SqlConnection(CONNECTION_STRING))
                 {
                     connection.Open();
 
@@ -50,9 +50,9 @@ namespace FML.DBLayer
 
         public void Delete(int id)
         {
-            var CONNECTION_STRING = ConfigurationManager.ConnectionStrings["DefaultConnection"];
-            string connectionString = CONNECTION_STRING.ConnectionString;
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            //var CONNECTION_STRING = ConfigurationManager.ConnectionStrings["DefaultConnection"];
+            //string connectionString = CONNECTION_STRING.ConnectionString;
+            using (SqlConnection connection = new SqlConnection(CONNECTION_STRING))
             {
                 connection.Open();
 
@@ -68,10 +68,10 @@ namespace FML.DBLayer
 
         public Customer Get(int CustomerId)
         {
-            var CONNECTION_STRING = ConfigurationManager.ConnectionStrings["DefaultConnection"];
-            string connectionString = CONNECTION_STRING.ConnectionString;
+            //var CONNECTION_STRING = ConfigurationManager.ConnectionStrings["DefaultConnection"];
+            //string connectionString = CONNECTION_STRING.ConnectionString;
             Customer customer = null;
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlConnection connection = new SqlConnection(CONNECTION_STRING))
             {
                 connection.Open();
 
@@ -103,10 +103,10 @@ namespace FML.DBLayer
 
         public IEnumerable<Customer> GetAll()
         {
-            var CONNECTION_STRING = ConfigurationManager.ConnectionStrings["DefaultConnection"];
-            string connectionString = CONNECTION_STRING.ConnectionString;
+            //var CONNECTION_STRING = ConfigurationManager.ConnectionStrings["DefaultConnection"];
+            //string connectionString = CONNECTION_STRING.ConnectionString;
             List<Customer> customers = new List<Customer>();
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlConnection connection = new SqlConnection(CONNECTION_STRING))
             {
                 connection.Open();
 
@@ -136,9 +136,9 @@ namespace FML.DBLayer
 
         public void Update(Customer customer)
         {
-            var CONNECTION_STRING = ConfigurationManager.ConnectionStrings["DefaultConnection"];
-            string connectionString = CONNECTION_STRING.ConnectionString;
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            //var CONNECTION_STRING = ConfigurationManager.ConnectionStrings["DefaultConnection"];
+            //string connectionString = CONNECTION_STRING.ConnectionString;
+            using (SqlConnection connection = new SqlConnection(CONNECTION_STRING))
             {
                 connection.Open();
 
